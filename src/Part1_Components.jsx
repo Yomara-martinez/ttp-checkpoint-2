@@ -137,8 +137,8 @@ function SectionB() {
     <div>
       <h2>Section B — Your Own Components</h2>
       {/* Render your components below */}
-      <PageHeader></PageHeader>
-      <PageFooter></PageFooter>
+      <PageHeader/>
+      <PageFooter/>
 
     </div>
   )

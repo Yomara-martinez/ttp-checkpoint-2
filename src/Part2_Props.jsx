@@ -25,11 +25,21 @@
 // The StudentBadge component below is hardcoded — it always shows the same text.
 // we will update this soon.
 
-function StudentBadge() {
+function StudentBadge(props) {
   return (
+
     <div>
-      <h3>Student Name</h3>
-      <p>Grade: 0</p>
+      <h3>Student: {props.name}</h3>
+      <p>Grade: {props.grade}</p>
+    </div>
+  )
+}
+
+function TeacherCard(props){
+  return(
+    <div>
+      <h3>Teacher: {props.name}</h3>
+      <p>Subject: {props.subject}</p>
     </div>
   )
 }
@@ -62,16 +72,17 @@ function SectionA() {
   //          Can you change a prop's value inside the component that receives it?
   //          Why or why not?
   //
-  //          answer:
+  //          answer: 
 
   return (
     <div>
       <h2>Section A — Props</h2>
-      <StudentBadge />
+      <StudentBadge name="Yomara" grade="B"/>
       {/* A1 + A2: Render two more StudentBadge components here */}
-
+      <StudentBadge name="Alvin" grade="A"/>
+      <StudentBadge name="Loki"grade="A+" />
       {/* A3: Render your TeacherCard here */}
-
+       <TeacherCard name="Abdul" subject="CS"/>
     </div>
   )
 }
@@ -99,7 +110,24 @@ function SectionA() {
 //       then embed that variable in your JSX.
 //
 // Write PlayerCard here:
+function PlayerCard(props){
+  let status;
+if(props.isActive){
+ status="Active"
 
+  }else {
+  status="Inactive"
+  }
+
+  return(
+
+<div>
+      <h3>{props.name}</h3>
+      <p>Score:{props.score}</p>
+      <p>status: {status}</p>
+    </div>
+  )
+}
 
 
 function SectionB() {
@@ -112,7 +140,7 @@ function SectionB() {
     <div>
       <h2>Section B — Props with Different Types</h2>
       {/* Render your PlayerCard components here */}
-
+<PlayerCard name="Messi" score={5} isActive={true}/>
     </div>
   )
 }
