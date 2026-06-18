@@ -55,16 +55,24 @@ function SectionA() {
       <h3>All Players</h3>
       <ul>
         {/* A1: map players here: */}
-
+       
+        {players.map((player)=> (
+  <li key={player.id}>{player.name}- {player.score}</li>
+  
+        ))}
       </ul>
 
       {/* A2: filtered list goes here: */}
-
+      <h3>Score above 30</h3>
+      <ul>
+{players.filter((player)=>player.score>30).map((player)=>(
+<li key={player.id}> {player.name}- {player.score}</li>
+  
+  ))}
+</ul>
     </div>
   )
 }
-
-
 // ------------------------------------------------------------
 // SECTION B — Lists and Components
 //
@@ -80,7 +88,14 @@ function SectionA() {
 //
 // Write PlayerRow here:
 
-
+function PlayerRow(props){
+  return(
+    <div>
+     <h3>{props.name}</h3>
+     <p>{props.score}</p>
+    </div>
+  )
+}
 
 function SectionB() {
   // B2.
@@ -101,6 +116,13 @@ function SectionB() {
       <h2>Section B — Lists and Components</h2>
       {/* B2: map PlayerRow components here */}
 
+{players.map((player)=>(
+  <ul>
+ <PlayerRow key={player.id} name={player.name} score={player.score}/>
+ </ul>
+)
+  )
+}
     </div>
   )
 }
